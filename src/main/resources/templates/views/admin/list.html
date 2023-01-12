@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        h1 {text-align: center;}
+        th {background-color: rgb(250, 240, 153); color: #fff; padding: 10px;}
+        td {text-align: center; border-bottom: 1px solid #ccc; padding:10px}
+        table {border-collapse: collapse; width: 1000px; margin: 10px auto;}
+        .searcharea, .pager_area {text-align: center;}
+        .box {border-radius: 5px; display: inline-block; padding: 7px; font-size: 12px; color: #fff;}
+        .wait {background-color: rgb(150, 186, 252);}
+        .normal {background-color: rgb(149, 235, 149);}
+        .banned {background-color:rgb(252, 116, 143);}
+        .admin {background-color: rgba(233, 167, 224, 0.548);}
+        .master {background-color: rgb(253, 193, 159);}
+    </style><!-- {dib+p7+fz12+c#fff} -->
+</head>
+<body>
+    <h1>관리자 목록</h1>
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>아이디</th>
+            <th>관리자명</th>
+            <th>관리자상태</th>
+            <th>등급</th>
+            <th>변경</th>
+            <th>삭제</th>
+        </thead>
+        <tbody>
+            <tr th:each="admin : ${result.list}">
+                <td th:text="${admin.adminSeq}"></td>
+                <td>
+                    <a th:text="${admin.adminId}" th:href="@{/admin/detail(admin_no=${admin.adminSeq})}"></a>
+                </td>
+                <td th:text="${admin.adminName}"></td>
+                <td>
+                    <th:block th:if="${admin.adminStatus == 1}"><span class="box wait">승인대기</span></th:block>
+                    <th:block th:if="${admin.adminStatus == 2}"><span class="box normal">정상사용</span></th:block>
+                    <th:block th:if="${admin.adminStatus == 3}"><span class="box banned">이용정지</span></th:block>
+                </td>
+                <td>
+                    <th:block th:if="${admin.adminGrade == 1}"><span class="box admin">관리자</span></th:block>
+                    <th:block th:if="${admin.adminGrade == 99}"><span class="box master">마스터</span></th:block>
+                </td>
+                <td>
+                    <a th:href="@{/admin/update/status?value=1(admin_no=${admin.adminSeq}, page=${result.currentPage}, keyword=${keyword})}">승인대기로 변경</a>
+                    <a th:href="@{/admin/update/status?value=2(admin_no=${admin.adminSeq}, page=${result.currentPage}, keyword=${keyword})}">정상사용으로 변경</a>
+                    <a th:href="@{/admin/update/status?value=3(admin_no=${admin.adminSeq}, page=${result.currentPage}, keyword=${keyword})}">이용정지로 변경</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/delete(admin_no=${admin.adminSeq}, page=${result.currentPage}, keyword=${keyword})}">계정삭제</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="searcharea">
+        <form action="/admin/list" method="get" id="search_form">
+            <!--<span th:text="${result.currentPage + 1}"></span>-->
+            <input type="text" name="keyword" placeholder="아이디 검색" th:value="${keyword}"><button>검색</button>
+        </form>
+    </div>
+    <div class="pager_area">
+        <th:block th:each="i : ${#numbers.sequence(0, result.totalPage - 1)}">
+            <th:block th:if="${result.totalPage > 0}">
+                <!--타임리프 시작 : @{URL(page=${i})}  =>  /admin/list/0?page=0     /admin/list0?page=1     /admin/list/0?page=2   => href 같은 경로 넣을때 @를 쓴다-->
+                <!--패쓰베리어블 시작 : @{URL/{page}=(page=${i})}  => /admin/list/0     /admin/list1        /admin/list/2  -->
+                <th:block th:if="${keyword == null || keyword == ''}">
+                    <a th:href="@{/admin/list(page=${i})}" th:text="${i+1}"></a>
+                </th:block>
+                <th:block th:if="${keyword != null && keyword != ''}">
+                    <a th:href="@{/admin/list(page=${i}, keyword=${keyword})}" th:text="${i+1}"></a>
+                </th:block>
+            </th:block>
+        </th:block>
+    </div>
+</body>
+</html>

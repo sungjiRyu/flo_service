@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>관리자 등록</h1>
+    <form action="/admin/add" method="post" id="add_form">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <!-- 아이디 중복 검사시 실패하면 입력한 데이터 다 날아가는걸 막기위해 controller에서 inputdata에 담았고, 
+                        그게 한번은 뜨지만 새로고침하면 null로 날아가기에
+                        nullpointexception 이 뜨는걸 방지하기 위해 null 일때랑 아닐때 나눠서 코드 짠다.
+                        아이디, 이름, 관리자유형 모두 설정해준다. -->
+                    <th:block th:if="${inputdata != null}">
+                        <input type="text" name="id" id="id" th:value="${inputdata.id}">
+                    </th:block>
+                    <th:block th:if="${inputdata == null}">
+                        <input type="text" name="id" id="id">
+                    </th:block>
+                </td> 
+                <td><button type="button" id="dup_chk">중복체크</button></td>
+            </tr>
+            <th:block th:if="${message != null}">
+                <tr>
+                    <td colspan="3" th:text="${message}" style="color: deeppink;"></td>
+                </tr>
+            </th:block>
+            <tr>
+                <td>비밀번호</td>
+                <td colspan="2"><input type="password" name="pwd" id="pwd"></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td colspan="2">
+                    <th:block th:if="${inputdata != null}">
+                        <input type="text" name="name" id="name" th:value="${inputdata.name}">
+                    </th:block>
+                    <th:block th:if="${inputdata == null}">
+                        <input type="text" name="name" id="name">
+                    </th:block>
+                </td>
+            </tr>
+            <tr>
+                <td>관리자 유형</td>
+                <td colspan="2">
+                    <select name="type" id="type">
+                        <th:block th:if="${inputdata != null}">
+                            <option value="1" th:selected="${inputdata.type == 1}">일반관리자</option>
+                            <option value="99" th:selected="${inputdata.type == 99}">마스터관리자</option>
+                        </th:block>
+                        <th:block th:if="${inputdata == null}">
+                            <option value="1">일반관리자</option>
+                            <option value="99">마스터관리자</option>
+                        </th:block>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>이미지 파일</td>
+                <td colspan="2">
+                    <input type="file" name="adminImg">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <button id="save">등록</button>
+                    <a href="/">메인으로</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

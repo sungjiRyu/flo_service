@@ -1,0 +1,25 @@
+# JAVA 스러운 방법 -> yaml 사용을 위해서 .temp로 해둠
+
+server.port=8585
+
+spring.datasource.url=jdbc:mysql://localhost:3306/flo_db
+spring.datasource.username=root
+spring.datasource.password=1234
+
+
+# thymleaf 사용 여부 (default = true)
+spring.thymeleaf.enabled=true
+# thymleaf 캐시 여부 (defalut = true)
+spring.thymeleaf.cache=false
+# thymleaf 파일 시작 위치 설정 ( /resources/templates/views/ )
+spring.thymeleaf.prefix=classpath:/templates/views/
+# thymleaf 파일 유형 설정 ( .html )
+spring.thymeleaf.suffix=.html
+
+
+# 파일 전송 사용 여부
+spring.servlet.multipart.enabled=true
+# MultipartFile 최대 크기 (순수하게 파일 만의 크기)
+spring.servlet.multipart.max-file-size=100MB
+# MultipartFile과 데이터를 포함한 전체 크기 (파일과 함께 전달해오는 데이터까지 포함한 크기 _ 보통 10~20% 추가해서 계산) -> 용량이 부족하면 데이터가 안 날아가기도 함
+spring.servlet.multipart.max-request-size=110MB
