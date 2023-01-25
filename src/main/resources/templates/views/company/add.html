@@ -9,16 +9,15 @@
 </head>
 
 <body>
-    <h1>장르 정보 추가</h1>
-    <form action="/genre/add" method="post">
-        <p>장르 명</p>
+    <h1>회사 정보 추가</h1>
+    <form action="/company/add" method="post">
+        <p>회사 명</p>
         <input type="text" name="name">
         <th:block th:if="${result != null}">
             <p th:text="${result.message}" style="color:red"></p>
         </th:block>
         <button>등록</button>
-        <a href="/genre/list">목록으로</a>
+        <a href="/company/list">목록으로</a>
     </form>
 </body>
-
 </html>

@@ -45,9 +45,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder
 @DynamicInsert
-@Table(name = "genre_info")
-public class GenreEntity {
+@Table(name = "pub_company_info")
+public class CompanyEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "genre_seq")         private Long genreSeq;
-    @Column(name = "genre_name")          private String genreName;
+    @Column(name = "pub_seq")         private Long pubSeq;
+    @Column(name = "pub_name")          private String pubName;
 }
