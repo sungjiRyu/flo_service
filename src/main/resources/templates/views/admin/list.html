@@ -32,7 +32,7 @@
             <th>삭제</th>
         </thead>
         <tbody>
-            <tr th:each="admin : ${result.list}">
+            <tr th:each="admin : ${result.list}"> 
                 <td th:text="${admin.adminSeq}"></td>
                 <td>
                     <a th:text="${admin.adminId}" th:href="@{/admin/detail(admin_no=${admin.adminSeq})}"></a>
