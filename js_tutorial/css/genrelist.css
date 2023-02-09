@@ -1,0 +1,47 @@
+* {margin: 0; padding: 0;}
+#pager_area > button {
+    border: 0; background-color: #fff; border-radius: 50%;
+    width: 20px; height: 20px; margin: 3px;
+    color: #666; cursor:pointer;
+}
+#pager_area > button:hover {color: #fff; background-color: #999;}
+#pager_area > button.current {
+    font-weight: bold;
+    color: #fff; background-color: #000;
+}
+#genre_add_wrap, #genre_update_wrap {
+    display: none;
+    width: 100vw; /* 가로길이 - 창 가로길이의 100% (vw : view width) */
+    height: 100vh; /* 세로길이 - 창 세로길이의 100% (vh : view height) */
+    position: fixed; /* 위치 : 고정좌표 기준으로 위치 설정 */ 
+    left: 0; /* 왼쪽 좌표 0 */
+    top: 0; /* 위쪽 좌표 0 */
+    background-color: rgba(0,0,0,0.5); /* 배경색 : 50% 투명도 검정 */
+    z-index: 99999; /* 항상 위쪽에 표시 (다른 요소들을 덮는 위치) */
+}
+#genre_add, #genre_update {
+    position: absolute; /* 절대좌표 기준 위치 설정 */
+    background-color: #fff; /* 배경 흰색*/
+    width: 230px; height: 100px; /* 가로 230 세로 100 */
+    padding:20px; /* 안쪽 여백 */
+    border-radius: 5px; /* 모서리 라운드 설정 */
+    left: 50%; /* 왼쪽 좌표 기준 50% */
+    top: 50%; /* 위쪽 좌표 기준 50% */
+    margin-left: -135px; /* 가로 / 2 + 패딩 */
+    margin-top: -70px;  /* 세로 / 2 + 패딩 */
+}
+#genre_add_close, #genre_update_close {
+    /* 절대좌표, 가로세로 25 글자크기18 오른쪽 위 기준 20씩 글자 굵게 색깔 #999 배경투명
+    테두리 1픽셀 실선 #999색 커서는 손가락모양 */
+    position: absolute; width: 25px; height: 25px; font-size: 18px;
+    right: 20px; top: 20px; font-weight: bold; color: #999; 
+    background-color: transparent; border: 1px solid #999; cursor: pointer;
+}
+#genre_add_close:hover, #genre_update_close:hover { /* genre_add_close에 마우스를 올려놨을 때 */
+    /* 이 스타일을 추가 적용한다. */
+    /* 배경색 뻘건거 글자색 흰거 테두리 색 뻘건거*/
+    background-color: rgb(255, 81, 81); color: #fff; border-color: rgb(255, 81, 81);
+}
+#add_err_msg, #update_err_msg { /* 글자색 뻘건거, 글자크기 12, 글자굵기 굵게 */
+    color: rgb(255, 81, 81); font-size: 12px; font-weight: bold;
+}
