@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/genrelist.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.6/axios.min.js" integrity="sha512-RUkwGPgBmjCwqXpCRzpPPmGl0LSFp9v5wXtmG41+OS8vnmXybQX5qiG5adrIhtO03irWCXl+z0Jrst6qeaLDtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="js/loginchk.js"></script> -->
+  <script src ="js/utils.js"></script>
+  <script src ="js/companylist.js"></script>
+</head>
+<body>
+  <header id="header">
+    <div>
+      <span id="id"></span><span id="name"></span>님
+      <button id="logout">로그아웃</button>
+    </div>
+  </header>
+  <button id="genre_popup_btn">기획사 정보 추가</button>
+
+  <table id="list_table">
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>기획사명</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr>
+        <td>123</td>
+        <td>
+          <a href="#">기획사이름</a>
+        </td>
+        <td>
+          <button>삭제</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="search_area">
+    <input type="text" id="keyword">
+    <button id="search">검색</button>
+  </form>
+  <div id="pager_area"></div>
+  <!-- #genre_add_wrap>#genre_add>(h2+form#genre_add_form>(input#genre_name+p#add_err_msg+button#genre_add_btn))
+  #genre_add_wrap>#genre_add>(h2+form>(input+p+button)) -->
+  <div id="genre_add_wrap">
+  <div id="genre_add">
+    <h2>기획사정보 추가</h2>
+    <form id="genre_add_form">
+      <input type="text" id="genre_name">
+      <p id="add_err_msg"></p>
+      <button id="genre_add_btn">기획사정보 추가</button>
+    </form>
+    <button id="genre_add_close">&times;</button>
+  </div>
+</div>
+ 
+<div id="genre_update_wrap">
+  <div id="genre_update">
+    <h2>기획사 상세 정보</h2>
+    <form id="genre_update_form">
+      <input type="number" id="genre_update_seq" hidden>
+      <input type="text" id="genre_update_name">
+      <p id="update_err_msg"></p>
+      <button id="genre_update_btn">기획사정보 수정</button>
+    </form>
+    <button id="genre_update_close">&times;</button>
+  </div>
+</div>
+</body>
+</html>

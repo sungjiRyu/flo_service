@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("btn1").addEventListener("click",
+     //어나미머스 펑션 (이름없는 함수)
+    function() {
+      document.getElementById("para").innerHTML = "Lorem Ipsum dolor"
+    }
+    );
+      document.getElementById("btn2").addEventListener("click", helloClassChange);
+    document.getElementById("btn3").addEventListener("click", pTagsChange);
+    document.getElementById("btn4").addEventListener("click", areaPTagsChange);
+    }
+</script>
+</head>
+<body>
+  <p id="para">hello world!</p>
+  <!-- p.hello{Hello$}*3 -->
+  <p class="hello">Hello1</p>
+  <p class="hello">Hello2</p>
+  <p class="hello">Hello3</p>
+  <!-- #area>(p{area pTage}*3) -->
+  <div id="area">
+    <p>area pTag</p>
+    <p>area pTag</p>
+    <p>area pTag</p>
+  </div>
+  <!-- <button onclick="paraChange()">아이디가 para인 p 태그 변경</button>
+  <button onclick="helloClassChange()">클래스가 hello인 태그 변경</button>
+  <button onclick="pTagsChange()">전체 p 태그 변경</button>
+  <button onclick="areaPTagsChange()">area 안쪽의 p 태그 변경</button> -->
+  <button onclick="paraChange()">아이디가 para인 p 태그 변경</button>
+  <button id="btn1">아이디가 para인 p 태그 변경</button>
+  <button id="btn2">클래스가 hello인 태그 변경</button>
+  <button id="btn3">전체 p 태그 변경</button>
+  <button id="btn4">area 안쪽의 p 태그 변경</button>
+  <script>
+    // document.getElementById("btn1").addEventListener("click", paraChange);
+    document.getElementById("btn1").addEventListener("click",
+     //어나미머스 펑션 (이름없는 함수)
+    function() {
+      document.getElementById("para").innerHTML = "Lorem Ipsum dolor"
+    }
+    );
+    document.getElementById("btn2").addEventListener("click", helloClassChange);
+    document.getElementById("btn3").addEventListener("click", pTagsChange);
+    document.getElementById("btn4").addEventListener("click", areaPTagsChange);
+    function areaPTagsChange() {
+      // CSS 선택자 표현을 통한 선택
+      const areaPTags = document.querySelectorAll("#area > p");
+      for(let i=0; i<areaPTags.length;i++) {
+        areaPTags[i].innerHTML = "area pTag" + (i+1)+"번째"
+        areaPTags[i].style.color = "#ff0000";
+      }
+    }
+
+    function paraChange() {
+      //아이디를 통한 선택
+      document.getElementById("para").innerHTML = "Lorem Ipsum dolor"
+    }
+
+    function helloClassChange() {
+    // 클래스 이름을 통한 선택
+    const hello = document.getElementsByClassName("hello");
+    for(let i = 0; i < hello.length; i++) {
+      hello[i].innerHTML = "class hello " + (i+1) + "번째"
+    }
+  }
+    
+    function pTagsChange() {
+    // 태그 이름을 통한 선택
+    const pTags = document.getElementsByTagName("p");
+    for(let i = 0; i < pTags.length; i++) {
+      pTags.innerHTML = "p 태그 " + (i+1) + "번째"
+    }
+  }
+
+    // document.getElementsByClassName("hello")[0].innerHTML = "첫 번째"
+    // document.getElementsByClassName("hello")[1].innerHTML = "두 번째"
+    // document.getElementsByClassName("hello")[2].innerHTML = "세 번째"
+    
+//   </script>
+// </body>
+</html>

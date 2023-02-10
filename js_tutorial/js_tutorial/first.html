@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // console.log("Hello World");
+    // const(상수), let(변수)
+    let a = 10;
+    let b = 10.23;
+    let c = true;
+    let d = "Hello";
+    let e = "10";
+    // Java Script Object Notation
+    let obj = {
+      "no":1,
+      "name":"발라드"
+    };
+    let arr = [1,2,3,4,5];
+    // for(let i=0;i<arr.length;i++) {
+    //   console.log(arr[i]);
+    // }
+    // Java에서의 순차반복
+    // for(int i : arr) { System.out.println(i); }
+    
+    // JavaScript에서의 순차반복
+    // Java Lambda
+    arr.forEach(i => console.log(i)); // ECMA Script 6 - ES6
+
+    //배열만들기
+      let arr2 = [];
+      let arr3 = new Array();
+
+      arr2.push(1);
+      arr2.push(123.12);
+      arr2.push("Hello");
+      arr2.push({"no":2, "name":"K-POP"});
+      arr2.push([1,2,3,4]);
+      console.log(arr2);
+
+      // 특정 값을 가지는 데이터 뽑아내기
+      arr2 = arr2.filter(data => data != 123.12)
+
+      //Stack 구조
+      // arr2.pop(0);
+      console.log(arr2);
+
+      func1();
+      func2(10,20);
+      func2("10",20);
+      func2({"a":1, "b":2}, 20);
+      // Method - 리턴 타입이 없음
+      function func1() {
+        console.log("Hello");
+      }
+      // 파라미터 타입이 없음
+      function func2(a,b) {
+        console.log(a+b);
+      }
+      function func3() {
+        return "asd";
+      }
+      function func4() {
+        return 2341415;
+      }
+    // console.log(arr);
+    // console.log(obj);
+    // console.log(obj.no);
+    // console.log(obj.name);
+    // console.log(a,b,c,d);
+    // console.log(a+10);
+    // console.log(e*1+20);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

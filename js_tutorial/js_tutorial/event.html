@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    function clickBtn() {
+      alert(document.getElementById("btn1").innerHTML);
+      document.getElementById("btn1").style.border="1px solid #ff0000";
+      document.getElementById("btn1").style.backgroundColor="#ff0000";
+      document.getElementById("btn1").style.Color="#ffffff";
+    }
+  </script>
+</head>
+<body>
+  <button id="btn1" onclick="clickBtn();">클릭</button>
+  <!-- <button id="btn2" onmouseenter="clickBtn();">클릭</button> -->
+  <!-- <button id="btn3" onmouseout="clickBtn();">클릭</button> -->
+</body>
+</html>

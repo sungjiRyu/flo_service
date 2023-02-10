@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <p id="para">Lorem <b>ipsum</b> dolor sit amet.</p>
+  <p class="bold">Lorem, ipsum dolor. 3</p>
+  <p class="bold">Lorem, ipsum dolor. 3</p>
+  <p class="bold">Lorem, ipsum dolor. 3</p>
+  <div id="area1">
+    <p>area1 pTag1</p>
+    <p>area1 pTag2</p>
+    <p>area1 pTag3</p>
+  </div>
+  <script>
+    // #area1 > p - CSS Selector 표현
+    // #area1 > p - id가 area1인 태그 안쪽의 p 태그
+    let area1pTags = document.querySelector("#area1 > p");
+    console.log(area1pTags)
+    //DOM - Document Object Model - HTML을 Javascript Object 형식으로
+    //만들어둔것
+    // console.log(document.getElementById("para"));
+    const para = document.getElementById("para");
+    console.log(para.innerHTML);
+    // para.innerHTML = "sjdklfjald<br>alkjdsflkjldaksjfla";
+    const bold = document.getElementsByClassName("bold");
+    // console.log(bold[0].innerHTML);
+    for(let i=0; i<bold.length; i++) {
+      console.log(bold[i].innerHTML);
+    }
+    const pTags = document.getElementsByTagName("p");
+    for(let i=0; i<pTags.length; i++) {
+      console.log(pTags[i].innerHTML);
+    }
+    // bold.foreach(tag => {console.log(tag.innerHTML)});
+ </script>
+</body>
+</html>
